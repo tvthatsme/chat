@@ -1,12 +1,12 @@
 mutation {
   first: createChannel(data: {
-    title: "Boston Celtics"
+    title: "A channel for everyone"
   }) {
     id
   }
 
   second: createChannel(data: {
-    title: "Atlanta Hawks"
+    title: "Random"
   }) {
     id
   }
