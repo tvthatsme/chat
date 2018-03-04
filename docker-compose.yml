@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+
+  #Setup backend services
+  chat-back:
+   build: ./chat-back
+   volumes:
+     - ./chat-back/src:/usr/src/app/src
+     - ./chat-back/src:/usr/src/app/src/database
+   expose:
+     - 4000
+   ports:
+     - 4000:4000
+   command: npm start
+
+  #Setup frontend services
+  chat-front:
+    build: ./chat-front
+    volumes:
+      - ./chat-front/src:/usr/src/app/src
+      - ./chat-front/public:/usr/src/app/public
+    ports:
+      - 3000:3000
+    command: npm start
