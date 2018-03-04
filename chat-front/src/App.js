@@ -26,7 +26,6 @@ const wsLink = new WebSocketLink({
 });
 
 const middlewareAuthLink = new ApolloLink((operation, forward) => {
-  // const token = token;
   const authorizationHeader = token ? `Bearer ${token}` : null;
   operation.setContext({
     headers: {
@@ -47,11 +46,9 @@ const link = split(
   httpLinkWithAuthToken
 );
 
-const cache = new InMemoryCache();
-
 const client = new ApolloClient({
   link,
-  cache
+  cache: new InMemoryCache()
 });
 
 class App extends Component {
